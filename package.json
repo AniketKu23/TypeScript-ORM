@@ -1,0 +1,16 @@
+{
+  "name": "light-orm",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.1.0",
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm --filter @light-orm/core dev & pnpm --filter todo-app dev",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.4.5"
+  }
+}
