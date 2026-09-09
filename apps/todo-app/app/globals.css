@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-paper: #F6F4F7;
+  --color-paper-line: #E4DEE8;
+  --color-ink: #38343C;
+  --color-ink-muted: #6F6A76;
+  --color-sage: #8CA888;
+  --color-sage-deep: #5F7A5C;
+  --color-lilac: #C6B6D9;
+  --color-blush: #E3A79E;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-ui), sans-serif;
+  @apply antialiased min-h-screen;
+}
+
+@layer utilities {
+  .focus-ring-custom {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-sage-deep focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+  }
+}
+
+@keyframes draw-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-strike {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw-check {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw-check 200ms ease-out forwards;
+}
+
+.animate-draw-strike {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-strike 250ms ease-out forwards;
+  animation-delay: 100ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-draw-check {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .animate-draw-strike {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .motion-safe-transition {
+    transition: none !important;
+  }
+}

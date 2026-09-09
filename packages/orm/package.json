@@ -6,9 +6,9 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     }
   },
   "scripts": {
@@ -22,5 +22,8 @@
   "devDependencies": {
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"
+  },
+  "bin": {
+    "light-orm": "./dist/cli.js"
   }
 }
