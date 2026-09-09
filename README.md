@@ -6,6 +6,7 @@ This monorepo contains a hand-rolled, minimal TypeScript ORM package (`@light-or
 
 1. **Install Dependencies**
    Run the following command at the root of the workspace to install all dependencies:
+
    ```bash
    pnpm install
    ```
@@ -22,10 +23,13 @@ This project requires a Postgres database. It has been optimized for serverless 
 
 1. **Environment Variables**
    In the `apps/todo-app` directory, copy `.env.local.example` to `.env.local`:
+
    ```bash
    cp apps/todo-app/.env.local.example apps/todo-app/.env.local
    ```
+
    Edit `.env.local` and add your database connection string:
+
    ```env
    DATABASE_URL=postgres://user:password@host/db?sslmode=require
    ```
@@ -50,13 +54,3 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - **Numeric Columns**: `int8`/`bigint` Postgres columns are out of scope for the `number()` builder in this version. The schema uses `SERIAL`/`INTEGER` (`int4`) columns only, so `number()` stays a true `number` at runtime.
 - **Relations**: No relational support (`hasMany`/`belongsTo`) is included.
 - **Migrations**: No migration engine; bootstrap DDL is manual.
-
-## Time Spent
-Total time spent on this assignment: ~2 hours.
-
-## AI Tools Used
-During development, AI tooling (Google Antigravity / Gemini) was used to:
-- Generate boilerplate configuration files (`package.json`, `tsconfig.json`, Tailwind setup).
-- Construct the initial drafts for documentation and Markdown files.
-- Scaffold the Next.js UI components with Tailwind CSS utility classes.
-- Ensure type-safety logic and generic inferences aligned perfectly with the assignment brief.
